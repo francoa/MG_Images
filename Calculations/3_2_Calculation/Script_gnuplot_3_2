@@ -29,7 +29,7 @@ set lmargin 6.5
 set rmargin 2
 set tmargin 1
 set terminal postscript eps enhanced color linewidth 1.0 "Helvetica" 20 size 5,4
-set output "image.eps"
+set output "Johnson.eps"
 plot "Compression/C_3_2Values" u 1:2 w p pt 8 ps 3.5 lc rgb "blue" notitle, \
         a1+b1*x w l lc rgb "blue" lw 2.5 lt 1 dt 2 title "Compression", \
         "Tension/T_3_2Values" u 1:2 w p pt 8 ps 3.5 lc rgb "red" notitle "Tension", \
