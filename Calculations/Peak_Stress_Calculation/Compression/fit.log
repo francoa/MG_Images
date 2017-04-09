@@ -1,0 +1,66 @@
+
+
+*******************************************************************************
+Sun Apr  9 16:01:41 2017
+
+
+FIT:    data read from 'C_MaxValues_No900' using 1:2
+        format = x:z
+        #datapoints = 7
+        residuals are weighted equally (unit weight)
+
+function used for fitting: mean(x)
+	mean(x) = m
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m            
+   0 2.4424903446e+01   0.00e+00  1.00e+00    1.000000e+00
+   3 2.0357450027e+00  -3.50e-02  1.00e-03    2.788421e+00
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 2.03575
+rel. change during last iteration : -3.49702e-07
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.582487
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.339291
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = 2.78842          +/- 0.2202       (7.895%)
+
+
+*******************************************************************************
+Sun Apr  9 16:01:41 2017
+
+
+FIT:    data read from 'C_MaxValues_No900' using 1:2
+        format = x:z
+        #datapoints = 7
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x) = a1*exp(-x/b1)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 1.1882212552e+01   0.00e+00  1.13e+00    2.000000e+00   1.000000e+03
+   4 6.1546770411e-03  -7.09e-01  1.13e-04    3.677881e+00   1.020158e+03
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 0.00615468
+rel. change during last iteration : -7.08773e-06
+
+degrees of freedom    (FIT_NDF)                        : 5
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0350847
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00123094
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 3.67788          +/- 0.02695      (0.7329%)
+b1              = 1020.16          +/- 25.88        (2.536%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1             -0.771  1.000 

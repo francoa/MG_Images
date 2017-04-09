@@ -1,0 +1,12 @@
+#
+#	This script forms a file with columns 1: strain and 2: stress value when the curve departs 20% from elastic behavior
+#
+
+awk 'BEGIN{def=0; dif=0; young=51.9641; initdef=356.38184;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out10_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=49.5956; initdef=356.62321;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out100_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=46.0942; initdef=356.95703;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out200_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=43.3231; initdef=357.315;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out300_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=42.669; initdef=357.6421;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out400_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=39.7148; initdef=357.99511;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out500_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=36.4923; initdef=358.41907;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out600_copia.out >> 20percent_Separation
+awk 'BEGIN{def=0; dif=0; young=31.3947; initdef=359.53544;} {if (NR>40) {def=(initdef-$15)/initdef; dif=(sqrt((young*def-$16)*(young*def-$16)))*100/(young*def); if (dif>20) {print def " " $16; exit;}}} END{}' out900_copia.out >> 20percent_Separation

@@ -1,0 +1,69 @@
+set termoption dash
+
+val1 = system("awk 'FNR == 1 {print $15}' out10_copia.out")
+val10 = system("awk 'FNR == 1 {print $15}' out100_copia.out")
+val2 = system("awk 'FNR == 1 {print $15}' out200_copia.out")
+val3 = system("awk 'FNR == 1 {print $15}' out300_copia.out")
+val4 = system("awk 'FNR == 1 {print $15}' out400_copia.out")
+val5 = system("awk 'FNR == 1 {print $15}' out500_copia.out")
+val6 = system("awk 'FNR == 1 {print $15}' out600_copia.out")
+val9 = system("awk 'FNR == 1 {print $15}' out900_copia.out")
+
+plot "out10_copia.out" u ((val1-$15)/val1):16 w lp pt 7 ps 0.5 lc rgb "#808000" title "10 K"
+replot "out100_copia.out" u ((val10-$15)/val10):16 w lp pt 7 ps 0.5 lc rgb "#ffff00" title "100 K"
+replot "out200_copia.out" u ((val2-$15)/val2):16 w lp pt 7 ps 0.5 lc rgb "#800080" title "200 K"
+replot "out300_copia.out" u ((val3-$15)/val3):16 w lp pt 7 ps 0.5 lc rgb "#00ffff" title "300 K"
+replot "out400_copia.out" u ((val4-$15)/val4):16 w lp pt 7 ps 0.5 lc rgb "#0000ff" title "400 K"
+replot "out500_copia.out" u ((val5-$15)/val5):16 w lp pt 7 ps 0.5 lc rgb "#00ff00" title "500 K"
+replot "out600_copia.out" u ((val6-$15)/val6):16 w lp pt 7 ps 0.5 lc rgb "#ff0000" title "600 K"
+replot "out900_copia.out" u ((val9-$15)/val9):16 w lp pt 7 ps 0.5 lc rgb "#000000" title "900 K"
+
+replot "<echo '0.0844 3.50835'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0818 3.24544'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.08 2.93841'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0764 2.64692'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0684 2.33326'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0656 2.08333'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0636 1.83883'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0118 0.288827'" w points pt 6 ps 2 lc 7 notitle
+
+set object rectangle back from 0,0 to 0.0375,2.25 lw 3
+set label "Elasticidad" at 0.002,2.35 font "Helvetica,24"
+set label "Pico" at 0.09,3.8 font "Helvetica,24"
+set label "Ablandamiento" at 0.13,3.8 font "Helvetica,24"
+
+set style line 15 lw 2 lt 2 dt 2 linecolor rgb "#808000"
+set style line 16 lw 2 lt 2 dt 2 linecolor rgb "#ffff00"
+set style line 17 lw 2 lt 2 dt 2 linecolor rgb "#800080"
+set style line 18 lw 2 lt 2 dt 2 linecolor rgb "#00ffff"
+set style line 19 lw 2 lt 2 dt 2 linecolor rgb "#0000ff"
+set style line 20 lw 2 lt 2 dt 2 linecolor rgb "#00ff00"
+set style line 21 lw 2 lt 2 dt 2 linecolor rgb "#ff0000"
+set style line 22 lw 2 lt 2 dt 2 linecolor rgb "#000000"
+set arrow from 0.0844,0 to 0.0844,3.50835  nohead ls 15
+set arrow from 0.0818,0 to 0.0818,3.24544  nohead ls 16
+set arrow from 0.08,0 to 0.08,2.93841  nohead ls 17
+set arrow from 0.0764,0 to 0.0764,2.64692  nohead ls 18
+set arrow from 0.0684,0 to 0.0684,2.33326  nohead ls 19
+set arrow from 0.0656,0 to 0.0656,2.08333  nohead ls 20
+set arrow from 0.0636,0 to 0.0636,1.83883  nohead ls 21
+set arrow from 0.0118,0 to 0.0118,0.288827  nohead ls 22
+
+set xrange [0:0.2]
+set yrange [0:4]
+set xlabel '{/Symbol e}' font "Helvetica Bold,24"
+set ylabel '{/Symbol s} [GPa]'  font "Helvetica Bold,24" offset 1.5,0  
+set key left top inside
+set border linewidth 2
+set xtics 0,0.05,0.2 nomirror font "Helvetica Bold,22"
+set ytics 0,0.5,4 nomirror font "Helvetica Bold,22"
+set mxtics 2
+set mytics 2
+set bmargin 3.5
+set lmargin 6.5
+set rmargin 2
+set tmargin 1
+
+set terminal postscript eps color enhanced linewidth 1.0 "Helvetica" 20 size 5,4
+set output "Comp_stress_strain_curve.eps"
+replot

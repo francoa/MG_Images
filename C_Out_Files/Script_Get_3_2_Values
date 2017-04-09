@@ -1,0 +1,12 @@
+#
+#	This script forms a file with columns 1: (T/Tg)**(2/3) and 2: Sy/G
+#
+
+awk 'BEGIN{young=51.9641; inicial=356.38184; fluencia=0; temp=10;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out10_copia.out >> file_comp_32
+awk 'BEGIN{young=49.5956; inicial=356.62321; fluencia=0; temp=100;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out100_copia.out >> file_comp_32
+awk 'BEGIN{young=46.0942; inicial=356.95703; fluencia=0; temp=200;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out200_copia.out >> file_comp_32
+awk 'BEGIN{young=43.3231; inicial=357.315; fluencia=0; temp=300;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out300_copia.out >> file_comp_32
+awk 'BEGIN{young=42.669; inicial=357.6421; fluencia=0; temp=400;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out400_copia.out >> file_comp_32
+awk 'BEGIN{young=39.7148; inicial=357.99511; fluencia=0; temp=500;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out500_copia.out >> file_comp_32
+awk 'BEGIN{young=36.4923; inicial=358.41907; fluencia=0; temp=600;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out600_copia.out >> file_comp_32
+awk 'BEGIN{young=31.3947; inicial=359.53544; fluencia=0; temp=900;} {if ($16<0.8*young*((inicial-$15)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' out900_copia.out >> file_comp_32

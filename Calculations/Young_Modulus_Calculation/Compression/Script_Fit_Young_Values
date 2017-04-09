@@ -1,0 +1,20 @@
+mean(x) = m
+fit mean(x) 'C_YoungValues_No900' using 1:2 via m
+SST = FIT_WSSR
+f1(x) = a1*exp(-x/b1)
+a1=2; b1=1000;
+fit f1(x) 'C_YoungValues_No900' using 1:2 via a1, b1
+plot "C_YoungValues" u 1:2 w p pt 4 ps 3 lc 20 title "Simulation values", \
+	a1*exp(-x/b1) w l lc 1 lw 2 title "Fit values"
+set key right top inside
+set grid
+set xrange [0:1000]
+set yrange [25:55]
+set title "Compression : Young Modulus - Temperature"
+set ylabel 'Young Modulus [GPa]'
+set xlabel 'Temperature [K]'
+set terminal jpeg size 1366,692
+set output "Comp_Young_Temp_curve.jpeg"
+replot
+SSRes = FIT_WSSR
+print ("%f", 1 - SSRes/SST)

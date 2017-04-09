@@ -1,0 +1,12 @@
+#
+#	This script forms a file with columns 1: (T/Tg)**(2/3) and 2: Sy/G
+#
+
+awk 'BEGIN{young=49.6299443776593; inicial=356.38184; fluencia=0; temp=10;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_10K.dat >> file_tens_32
+awk 'BEGIN{young=46.0529523828355; inicial=356.62321; fluencia=0; temp=100;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_100K.dat >> file_tens_32
+awk 'BEGIN{young=44.4850428946265; inicial=356.95703; fluencia=0; temp=200;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_200K.dat >> file_tens_32
+awk 'BEGIN{young=42.8261303253402; inicial=357.315; fluencia=0; temp=300;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_300K.dat >> file_tens_32
+awk 'BEGIN{young=40.3487435696522; inicial=357.6421; fluencia=0; temp=400;} {if($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_400K.dat >> file_tens_32
+awk 'BEGIN{young=37.9781398009977; inicial=357.99511; fluencia=0; temp=500;} {if ($16<0.8*young*(($15-inicial)/inicial) && $16>0.4){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_500K.dat >> file_tens_32
+awk 'BEGIN{young=36.0403146332668; inicial=358.41907; fluencia=0; temp=600;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_600K.dat >> file_tens_32
+awk 'BEGIN{young=24.2764645280659; inicial=359.53544; fluencia=0; temp=900;} {if ($16<0.8*young*(($15-inicial)/inicial)){fluencia=$16/30; temp=(temp/696)^(2/3); print temp " " fluencia; exit 1;}} END{ }' PBoundaries_900K.dat >> file_tens_32

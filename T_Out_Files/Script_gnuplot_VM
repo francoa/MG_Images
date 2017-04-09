@@ -1,0 +1,69 @@
+set termoption dash
+
+val1 = system("awk 'FNR == 1 {print $15}' PBoundaries_10K.dat")
+val10 = system("awk 'FNR == 1 {print $15}' PBoundaries_100K.dat")
+val2 = system("awk 'FNR == 1 {print $15}' PBoundaries_200K.dat")
+val3 = system("awk 'FNR == 1 {print $15}' PBoundaries_300K.dat")
+val4 = system("awk 'FNR == 1 {print $15}' PBoundaries_400K.dat")
+val5 = system("awk 'FNR == 1 {print $15}' PBoundaries_500K.dat")
+val6 = system("awk 'FNR == 1 {print $15}' PBoundaries_600K.dat")
+val9 = system("awk 'FNR == 1 {print $15}' PBoundaries_900K.dat")
+
+plot "PBoundaries_10K.dat" u (($15-val1)/val1):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#808000" title "10 K"
+replot "PBoundaries_100K.dat" u (($15-val10)/val10):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#ffff00" title "100 K"
+replot "PBoundaries_200K.dat" u (($15-val2)/val2):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#800080" title "200 K"
+replot "PBoundaries_300K.dat" u (($15-val3)/val3):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#00ffff" title "300 K"
+replot "PBoundaries_400K.dat" u (($15-val4)/val4):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#0000ff" title "400 K"
+replot "PBoundaries_500K.dat" u (($15-val5)/val5):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#00ff00" title "500 K"
+replot "PBoundaries_600K.dat" u (($15-val6)/val6):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#ff0000" title "600 K"
+replot "PBoundaries_900K.dat" u (($15-val9)/val9):16 w lp pt 7 ps 0.5 lt 1 lw 2 lc rgb "#000000" title "900 K"
+
+replot "<echo '0.0422 1.67214784992791'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0422 1.55429211576315'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0384 1.35642657197152'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0362 1.24016096718921'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0336 1.08269699334931'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0298 0.900847486486817'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0256 0.733947072500159'" w points pt 6 ps 2 lc 7 notitle
+replot "<echo '0.0172 0.32609234555589'" w points pt 6 ps 2 lc 7 notitle
+
+set object rectangle back from 0.15,-0.25 to 0.22,2.25 lw 3
+set label "Void" at 0.17,2.4 font "Helvetica,24"
+
+set style line 23 lw 2 lt 2 dt 2 linecolor rgb "#808000"
+set style line 24 lw 2 lt 2 dt 2 linecolor rgb "#ffff00"
+set style line 25 lw 2 lt 2 dt 2 linecolor rgb "#800080"
+set style line 26 lw 2 lt 2 dt 2 linecolor rgb "#00ffff"
+set style line 27 lw 2 lt 2 dt 2 linecolor rgb "#0000ff"
+set style line 28 lw 2 lt 2 dt 2 linecolor rgb "#00ff00"
+set style line 29 lw 2 lt 2 dt 2 linecolor rgb "#ff0000"
+set style line 30 lw 2 lt 2 dt 2 linecolor rgb "#000000"
+
+set arrow from 0.0422,0 to 0.0422,1.67214784992791 nohead ls 23
+set arrow from 0.0422,0 to 0.0422,1.55429211576315 nohead ls 24
+set arrow from 0.0384,0 to 0.0384,1.35642657197152 nohead ls 25
+set arrow from 0.0362,0 to 0.0362,1.24016096718921 nohead ls 26
+set arrow from 0.0336,0 to 0.0336,1.08269699334931  nohead ls 27
+set arrow from 0.0298,0 to 0.0298,0.900847486486817  nohead ls 28
+set arrow from 0.0256,0 to 0.0256,0.733947072500159  nohead ls 29
+set arrow from 0.0172,0 to 0.0172,0.32609234555589  nohead ls 30
+
+set xrange [0:0.2]
+set yrange [0:4]
+set xlabel '{/Symbol e}' font "Helvetica Bold,24"
+set ylabel '{/Symbol s} [GPa]'  font "Helvetica Bold,24" offset 1.5,0  
+set key left top inside
+set border linewidth 2
+set xtics 0,0.05,0.2 nomirror font "Helvetica Bold,22"
+set ytics 0,0.5,4 nomirror font "Helvetica Bold,22"
+set mxtics 2
+set mytics 2
+set bmargin 3.5
+set lmargin 6.5
+set rmargin 2
+set tmargin 1
+
+set terminal postscript eps enhanced color linewidth 1.0 "Helvetica" 20 size 5,4
+set output "Tens_stress_strain_curve.eps"
+replot
+

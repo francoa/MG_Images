@@ -1,0 +1,40 @@
+f1(x) = a1*x
+a1=10;
+fit f1(x) 'outYoung10' using ((-356.38184+$15)/356.38184):($16) via a1
+
+f2(x) = a2*x
+a2=10;
+fit f2(x) 'outYoung100' using ((-356.62321+$15)/356.62321):($16) via a2
+
+f3(x) = a3*x
+a3=10;
+fit f3(x) 'outYoung200' using ((-356.95703+$15)/356.95703):($16) via a3
+
+f4(x) = a4*x
+a4=10;
+fit f4(x) 'outYoung300' using ((-357.315+$15)/357.315):($16) via a4
+
+f5(x) = a5*x
+a5=10;
+fit f5(x) 'outYoung400' using ((-357.6421+$15)/357.6421):($16) via a5
+
+f6(x) = a6*x
+a6=10;
+fit f6(x) 'outYoung500' using ((-357.99511+$15)/357.99511):($16) via a6
+
+f7(x) = a7*x
+a7=10;
+fit f7(x) 'outYoung600' using ((-358.41907+$15)/358.41907):($16) via a7
+
+f8(x) = a8*x
+a8=10;
+fit f8(x) 'outYoung900' using ((-359.53544+$15)/359.53544):($16) via a8
+
+print ("%f", a1)
+print ("%f", a2)
+print ("%f", a3)
+print ("%f", a4)
+print ("%f", a5)
+print ("%f", a6)
+print ("%f", a7)
+print ("%f", a8)
